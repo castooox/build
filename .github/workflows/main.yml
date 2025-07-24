@@ -13,4 +13,4 @@ jobs:
       - name: Run build script
         run: |
           sudo apt update
-          ./compile.sh BOARD=orangepi-3b BRANCH=current RELEASE=bookworm BUILD_MINIMAL=no BUILD_DESKTOP=yes DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=desktop KERNEL_ONLY=no KERNEL_CONFIGURE=no
+          ./compile.sh BOARD=orangepi3b BRANCH=current RELEASE=bookworm BUILD_MINIMAL=no BUILD_DESKTOP=yes DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=desktop KERNEL_ONLY=no KERNEL_CONFIGURE=no
