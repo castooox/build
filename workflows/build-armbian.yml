@@ -1,0 +1,17 @@
+name: Build Armbian
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Armbian Build
+        uses: actions/checkout@v3
+
+      - name: Run build script
+        run: |
+          sudo apt update
+          sudo apt install -y git curl build-essential gcc g++ gawk unzip rsync file bc bison flex libssl-dev libncurses-dev libz-dev liblz4-tool libglib2.0-dev libpixman-1-dev python3 python3-distutils python3-dev libpython3-dev python-is-python3
+          ./compile.sh BOARD=orangepi-3b BRANCH=current RELEASE=bookworm BUILD_MINIMAL=no BUILD_DESKTOP=yes DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=desktop KERNEL_ONLY=no KERNEL_CONFIGURE=no
