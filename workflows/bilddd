@@ -1,0 +1,16 @@
+name: Build Armbian
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Armbian Build
+        uses: actions/checkout@v3
+
+      - name: Run build script
+        run: |
+          sudo apt update
+          ./compile.sh BOARD=orangepi-3b BRANCH=current RELEASE=bookworm BUILD_MINIMAL=no BUILD_DESKTOP=yes DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=desktop KERNEL_ONLY=no KERNEL_CONFIGURE=no
